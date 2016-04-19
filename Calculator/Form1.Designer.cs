@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button_n7 = new System.Windows.Forms.Button();
             this.button_n8 = new System.Windows.Forms.Button();
@@ -263,7 +262,8 @@
             this.Controls.Add(this.button_n8);
             this.Controls.Add(this.button_n7);
             this.Controls.Add(this.textBox1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Calculator";
             this.ResumeLayout(false);
