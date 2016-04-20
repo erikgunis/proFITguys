@@ -24,7 +24,9 @@ namespace Calculator
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            int baseNumber;
+            baseNumber = Int32.Parse(textBox1.Text);
+            MessageBox.Show("Current value is: " + baseNumber);
         }
 
         private void Form1_Load(object sender, EventArgs e)
