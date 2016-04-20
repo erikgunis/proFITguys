@@ -121,6 +121,7 @@ namespace Calculator
             }
             if (key == 111)
             {
+                
                 Globals.operand = '/';
                 textBox1.Clear();
             }
@@ -147,14 +148,11 @@ namespace Calculator
                 }
                 else if (Globals.operand == '/')
                 {
-                    if (Globals.secondNumber == 0)
-                    {
-                        textBox1.Text = "0";
-                    } else {
-                        answer = divide(Globals.baseNumber, Globals.secondNumber);
-                        Globals.operand = '\0';
-                        textBox1.Name = Convert.ToString(answer);
-                    }
+
+                    answer = divide(Globals.baseNumber, Globals.secondNumber);
+                    Globals.operand = '\0';
+                    textBox1.Name = Convert.ToString(answer);
+                    
                 }
 
 
@@ -165,8 +163,7 @@ namespace Calculator
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-        (e.KeyChar != '.'))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
             }
