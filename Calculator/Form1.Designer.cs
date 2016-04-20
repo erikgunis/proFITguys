@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button_n7 = new System.Windows.Forms.Button();
             this.button_n8 = new System.Windows.Forms.Button();
@@ -42,19 +43,20 @@
             this.button_mul = new System.Windows.Forms.Button();
             this.button_plus = new System.Windows.Forms.Button();
             this.button_dot = new System.Windows.Forms.Button();
-            this.button_ce = new System.Windows.Forms.Button();
+            this.button_c = new System.Windows.Forms.Button();
             this.button_div = new System.Windows.Forms.Button();
             this.button_minus = new System.Windows.Forms.Button();
             this.button_equals = new System.Windows.Forms.Button();
             this.button_exp = new System.Windows.Forms.Button();
             this.button_fact = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_operations = new System.Windows.Forms.Label();
+            this.button_modulo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox1.Location = new System.Drawing.Point(14, 42);
+            this.textBox1.Location = new System.Drawing.Point(14, 40);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(269, 26);
             this.textBox1.TabIndex = 0;
@@ -155,7 +157,7 @@
             this.button_n0.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button_n0.Location = new System.Drawing.Point(14, 200);
             this.button_n0.Name = "button_n0";
-            this.button_n0.Size = new System.Drawing.Size(104, 36);
+            this.button_n0.Size = new System.Drawing.Size(49, 36);
             this.button_n0.TabIndex = 10;
             this.button_n0.Text = "0";
             this.button_n0.UseVisualStyleBackColor = true;
@@ -183,22 +185,22 @@
             // button_dot
             // 
             this.button_dot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button_dot.Location = new System.Drawing.Point(124, 200);
+            this.button_dot.Location = new System.Drawing.Point(69, 200);
             this.button_dot.Name = "button_dot";
             this.button_dot.Size = new System.Drawing.Size(49, 36);
             this.button_dot.TabIndex = 15;
             this.button_dot.Text = ".";
             this.button_dot.UseVisualStyleBackColor = true;
             // 
-            // button_ce
+            // button_c
             // 
-            this.button_ce.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button_ce.Location = new System.Drawing.Point(234, 200);
-            this.button_ce.Name = "button_ce";
-            this.button_ce.Size = new System.Drawing.Size(49, 36);
-            this.button_ce.TabIndex = 16;
-            this.button_ce.Text = "CE";
-            this.button_ce.UseVisualStyleBackColor = true;
+            this.button_c.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button_c.Location = new System.Drawing.Point(179, 200);
+            this.button_c.Name = "button_c";
+            this.button_c.Size = new System.Drawing.Size(49, 36);
+            this.button_c.TabIndex = 16;
+            this.button_c.Text = "C";
+            this.button_c.UseVisualStyleBackColor = true;
             // 
             // button_div
             // 
@@ -223,7 +225,7 @@
             // button_equals
             // 
             this.button_equals.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button_equals.Location = new System.Drawing.Point(179, 200);
+            this.button_equals.Location = new System.Drawing.Point(124, 200);
             this.button_equals.Name = "button_equals";
             this.button_equals.Size = new System.Drawing.Size(49, 36);
             this.button_equals.TabIndex = 19;
@@ -251,30 +253,39 @@
             this.button_fact.Text = "x!";
             this.button_fact.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // label_operations
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label1.Location = new System.Drawing.Point(17, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "nejaky";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label_operations.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_operations.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label_operations.Location = new System.Drawing.Point(17, 11);
+            this.label_operations.Name = "label_operations";
+            this.label_operations.Size = new System.Drawing.Size(266, 22);
+            this.label_operations.TabIndex = 22;
+            this.label_operations.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // button_modulo
+            // 
+            this.button_modulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button_modulo.Location = new System.Drawing.Point(235, 200);
+            this.button_modulo.Name = "button_modulo";
+            this.button_modulo.Size = new System.Drawing.Size(48, 36);
+            this.button_modulo.TabIndex = 23;
+            this.button_modulo.Text = "MOD";
+            this.button_modulo.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(296, 248);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button_modulo);
+            this.Controls.Add(this.label_operations);
             this.Controls.Add(this.button_fact);
             this.Controls.Add(this.button_exp);
             this.Controls.Add(this.button_equals);
             this.Controls.Add(this.button_minus);
             this.Controls.Add(this.button_div);
-            this.Controls.Add(this.button_ce);
+            this.Controls.Add(this.button_c);
             this.Controls.Add(this.button_dot);
             this.Controls.Add(this.button_plus);
             this.Controls.Add(this.button_mul);
@@ -290,6 +301,7 @@
             this.Controls.Add(this.button_n7);
             this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Calculator";
@@ -314,13 +326,14 @@
         private System.Windows.Forms.Button button_mul;
         private System.Windows.Forms.Button button_plus;
         private System.Windows.Forms.Button button_dot;
-        private System.Windows.Forms.Button button_ce;
+        private System.Windows.Forms.Button button_c;
         private System.Windows.Forms.Button button_div;
         private System.Windows.Forms.Button button_minus;
         private System.Windows.Forms.Button button_equals;
         private System.Windows.Forms.Button button_exp;
         private System.Windows.Forms.Button button_fact;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_operations;
+        private System.Windows.Forms.Button button_modulo;
     }
 }
 
