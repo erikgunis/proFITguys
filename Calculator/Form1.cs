@@ -12,7 +12,7 @@ namespace Calculator
 {
     public partial class Form1 : Form
     {
-
+       
         public Form1()
         {
             InitializeComponent();
@@ -24,33 +24,7 @@ namespace Calculator
             public static float baseNumber = 0;
             public static float secondNumber = 0;
         }
-        private float add(float first, float second)
-        {
-            float result;
-            result = first + second;
-            return result;
-        }
-
-        private float subtract(float first, float second)
-        {
-            float result;
-            result = first - second;
-            return result;
-        }
-
-        private float multiply(float first, float second)
-        {
-            float result;
-            result = first * second;
-            return result;
-        }
-
-        private float divide(float first, float second)
-        {
-            float result;
-            result = first / second;
-            return result;
-        }
+       
 
         private void button19_Click(object sender, EventArgs e)
         {
@@ -130,26 +104,26 @@ namespace Calculator
                 float answer = 0;
                 if (Globals.operand == '+')
                 {
-                    answer = add(Globals.baseNumber, Globals.secondNumber);
+                    answer = Globals.baseNumber + Globals.secondNumber;
                     Globals.operand = '\0';
                     textBox1.Text = Convert.ToString(answer);
                 }
                 else if (Globals.operand == '-')
                 {
-                    answer = subtract(Globals.baseNumber, Globals.secondNumber);
+                    answer = Globals.baseNumber - Globals.secondNumber;
                     Globals.operand = '\0';
                     textBox1.Text = Convert.ToString(answer);
                 }
                 else if (Globals.operand == '*')
                 {
-                    answer = multiply(Globals.baseNumber, Globals.secondNumber);
+                    answer = Globals.baseNumber * Globals.secondNumber;
                     Globals.operand = '\0';
                     textBox1.Text = Convert.ToString(answer);
                 }
                 else if (Globals.operand == '/')
                 {
 
-                    answer = divide(Globals.baseNumber, Globals.secondNumber);
+                    answer = Globals.baseNumber / Globals.secondNumber;
                     Globals.operand = '\0';
                     textBox1.Name = Convert.ToString(answer);
                     
