@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Calculator
 {
     public partial class Form1 : Form
@@ -17,6 +18,7 @@ namespace Calculator
         {
             InitializeComponent();
         }
+        Mathlib kniznica = new Mathlib();
 
         public static class Globals
         {
@@ -91,31 +93,52 @@ namespace Calculator
                 Globals.operand = '/';
                 Globals.operandset = true;
             }
+            if (key == 70)
+            {
+                Globals.operand = 'f';
+                Globals.operandset = true;
+            }
+            if (key == 77)
+            {
+                Globals.operand = 'm';
+                Globals.operandset = true;
+            }
             if (e.KeyCode == Keys.Enter)
             {
                 float answer = 0;
                 if (Globals.operand == '+')
                 {
-                    answer = Globals.baseNumber + Globals.secondNumber;
+                    answer = kniznica.addition(Globals.baseNumber, Globals.secondNumber);
                     Globals.operand = '\0';
                     textBox1.Text = Convert.ToString(answer);
                 }
                 else if (Globals.operand == '-')
                 {
-                    answer = Globals.baseNumber - Globals.secondNumber;
+                    answer = kniznica.subtraction(Globals.baseNumber, Globals.secondNumber);
                     Globals.operand = '\0';
                     textBox1.Text = Convert.ToString(answer);
                 }
                 else if (Globals.operand == '*')
                 {
-                    answer = Globals.baseNumber * Globals.secondNumber;
+                    answer = kniznica.multiplication(Globals.baseNumber, Globals.secondNumber);
                     Globals.operand = '\0';
                     textBox1.Text = Convert.ToString(answer);
                 }
                 else if (Globals.operand == '/')
                 {
-
-                    answer = Globals.baseNumber / Globals.secondNumber;
+                    answer = kniznica.divide(Globals.baseNumber, Globals.secondNumber);
+                    Globals.operand = '\0';
+                    textBox1.Text = Convert.ToString(answer);
+                }
+                else if (Globals.operand == 'f')
+                {
+                    answer = kniznica.factorial(Globals.baseNumber);
+                    Globals.operand = '\0';
+                    textBox1.Text = Convert.ToString(answer);
+                }
+                else if (Globals.operand == 'm')
+                {
+                    answer = kniznica.modulo(Globals.baseNumber, Globals.secondNumber);
                     Globals.operand = '\0';
                     textBox1.Text = Convert.ToString(answer);
                 }
