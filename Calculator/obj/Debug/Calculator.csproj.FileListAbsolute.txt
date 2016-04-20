@@ -7,3 +7,21 @@ C:\Mirec\VUT Škola\2. semester\IVS\Projekt\Visual Studio\Calculator\Calculator\
 C:\Mirec\VUT Škola\2. semester\IVS\Projekt\Visual Studio\Calculator\Calculator\obj\Debug\Calculator.csproj.GenerateResource.Cache
 C:\Mirec\VUT Škola\2. semester\IVS\Projekt\Visual Studio\Calculator\Calculator\obj\Debug\Calculator.exe
 C:\Mirec\VUT Škola\2. semester\IVS\Projekt\Visual Studio\Calculator\Calculator\obj\Debug\Calculator.pdb
+C:\school\profitguys\Calculator\bin\Debug\Calculator.exe.config
+C:\school\profitguys\Calculator\obj\Debug\Calculator.exe
+C:\school\profitguys\Calculator\obj\Debug\Calculator.pdb
+C:\school\profitguys\Calculator\bin\Debug\Calculator.exe
+C:\school\profitguys\Calculator\bin\Debug\Calculator.pdb
+C:\school\profitguys\Calculator\obj\Debug\Calculator.csprojResolveAssemblyReference.cache
+C:\school\profitguys\Calculator\obj\Debug\Calculator.Form1.resources
+C:\school\profitguys\Calculator\obj\Debug\Calculator.Properties.Resources.resources
+C:\school\profitguys\Calculator\obj\Debug\Calculator.csproj.GenerateResource.Cache
+C:\Mirec\VUT Škola\2. semester\IVS\Projekt\Visual Studio\proFITguys\Calculator\bin\Debug\Calculator.exe.config
+C:\Mirec\VUT Škola\2. semester\IVS\Projekt\Visual Studio\proFITguys\Calculator\obj\Debug\Calculator.exe
+C:\Mirec\VUT Škola\2. semester\IVS\Projekt\Visual Studio\proFITguys\Calculator\obj\Debug\Calculator.pdb
+C:\Mirec\VUT Škola\2. semester\IVS\Projekt\Visual Studio\proFITguys\Calculator\bin\Debug\Calculator.exe
+C:\Mirec\VUT Škola\2. semester\IVS\Projekt\Visual Studio\proFITguys\Calculator\bin\Debug\Calculator.pdb
+C:\Mirec\VUT Škola\2. semester\IVS\Projekt\Visual Studio\proFITguys\Calculator\obj\Debug\Calculator.csprojResolveAssemblyReference.cache
+C:\Mirec\VUT Škola\2. semester\IVS\Projekt\Visual Studio\proFITguys\Calculator\obj\Debug\Calculator.Form1.resources
+C:\Mirec\VUT Škola\2. semester\IVS\Projekt\Visual Studio\proFITguys\Calculator\obj\Debug\Calculator.Properties.Resources.resources
+C:\Mirec\VUT Škola\2. semester\IVS\Projekt\Visual Studio\proFITguys\Calculator\obj\Debug\Calculator.csproj.GenerateResource.Cache
