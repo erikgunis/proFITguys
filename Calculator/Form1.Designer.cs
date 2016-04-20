@@ -164,7 +164,6 @@
             this.button_n0.TabIndex = 10;
             this.button_n0.Text = "0";
             this.button_n0.UseVisualStyleBackColor = true;
-            this.button_n0.Click += new System.EventHandler(this.button_n0_Click);
             // 
             // button_mul
             // 
@@ -310,7 +309,6 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Calculator";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_Press);
             this.ResumeLayout(false);

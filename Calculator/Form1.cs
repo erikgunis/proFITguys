@@ -21,6 +21,7 @@ namespace Calculator
         public static class Globals
         {
             public static char operand;
+            public static bool operandset = false;
             public static float baseNumber = 0;
             public static float secondNumber = 0;
         }
@@ -41,22 +42,12 @@ namespace Calculator
             }
             if (!(Globals.operand == '\0'))
             {
+
                 if (!(String.IsNullOrEmpty(textBox1.Text)))
                 {
                     Globals.secondNumber = float.Parse(textBox1.Text);
                 }
             }
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-        
-
-        private void button_n0_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void Form1_Press(object sender, KeyPressEventArgs e)
@@ -72,27 +63,33 @@ namespace Calculator
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+            if (Globals.operandset)
+            {
+                Globals.operandset = false;
+                textBox1.Clear();
+            }
+            
             int key = e.KeyValue;
 
             if (key == 107)
             {
                 Globals.operand = '+';
-                textBox1.Clear();
+                Globals.operandset = true;
             }
             if (key == 109)
             {
                 Globals.operand = '-';
-                textBox1.Clear();
+                Globals.operandset = true;
             }
             if (key == 106)
             {
                 Globals.operand = '*';
-                textBox1.Clear();
+                Globals.operandset = true;
             }
             if (key == 111)
             {
                 Globals.operand = '/';
-                textBox1.Clear();
+                Globals.operandset = true;
             }
             if (e.KeyCode == Keys.Enter)
             {
