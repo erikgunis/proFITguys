@@ -56,6 +56,8 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(269, 26);
             this.textBox1.TabIndex = 0;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // button_n7
             // 
@@ -156,6 +158,7 @@
             this.button_n0.TabIndex = 10;
             this.button_n0.Text = "0";
             this.button_n0.UseVisualStyleBackColor = true;
+            this.button_n0.Click += new System.EventHandler(this.button_n0_Click);
             // 
             // button_c
             // 
@@ -263,9 +266,13 @@
             this.Controls.Add(this.button_n7);
             this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Calculator";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_Press);
             this.ResumeLayout(false);
             this.PerformLayout();
 
