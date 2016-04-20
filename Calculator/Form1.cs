@@ -149,16 +149,17 @@ namespace Calculator
                 {
                     if (Globals.secondNumber == 0)
                     {
-                        textBox1.Text = "Cannot divide by zero!";
+                        textBox1.Text = "0";
                     } else {
                         answer = divide(Globals.baseNumber, Globals.secondNumber);
                         Globals.operand = '\0';
-                        textBox1.Text = Convert.ToString(answer);
+                        textBox1.Name = Convert.ToString(answer);
                     }
                 }
 
 
-                
+                textBox1.SelectionStart = textBox1.Text.Length;
+                textBox1.Focus();
             }
         }
 
