@@ -73,10 +73,6 @@ namespace Calculator
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             int key = e.KeyValue;
-            if(e.KeyCode == Keys.D0)
-            {
-               // MessageBox.Show("0 pressed");
-            }
 
             if (key == 107)
             {
@@ -95,7 +91,6 @@ namespace Calculator
             }
             if (key == 111)
             {
-                
                 Globals.operand = '/';
                 textBox1.Clear();
             }
@@ -125,11 +120,10 @@ namespace Calculator
 
                     answer = Globals.baseNumber / Globals.secondNumber;
                     Globals.operand = '\0';
-                    textBox1.Name = Convert.ToString(answer);
-                    
+                    textBox1.Text = Convert.ToString(answer);
                 }
 
-
+                Globals.secondNumber = '\0';
                 textBox1.SelectionStart = textBox1.Text.Length;
                 textBox1.Focus();
             }
