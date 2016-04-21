@@ -23,6 +23,7 @@ namespace Calculator
         public static class Globals
         {
             public static char operand;
+            public static bool negativeNumber = false;
             public static bool operandset = false;
             public static float baseNumber = 0;
             public static float secondNumber = 0;
@@ -38,7 +39,8 @@ namespace Calculator
         {
             if ((Globals.operand == '\0'))
             { 
-                if (!(String.IsNullOrEmpty(textBox1.Text))) {
+                if (!(String.IsNullOrEmpty(textBox1.Text)))
+                {
                     Globals.baseNumber = float.Parse(textBox1.Text);
                 }
             }
@@ -60,7 +62,12 @@ namespace Calculator
                 textBox1.SelectionStart = textBox1.Text.Length;
                 textBox1.Focus();
             }
-                
+            if(e.KeyChar != (Char)Keys.Enter)
+            {
+                label_operations.Text += " " + e.KeyChar;
+            }
+ 
+
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -70,6 +77,7 @@ namespace Calculator
                 Globals.operandset = false;
                 textBox1.Clear();
             }
+           
             
             int key = e.KeyValue;
 
@@ -80,8 +88,14 @@ namespace Calculator
             }
             if (key == 109)
             {
-                Globals.operand = '-';
-                Globals.operandset = true;
+                if (Globals.operandset)
+                {
+                    Globals.negativeNumber = true;
+                } else {
+                    Globals.operand = '-';
+                    Globals.operandset = true;
+                }
+                
             }
             if (key == 106)
             {
@@ -105,6 +119,10 @@ namespace Calculator
             }
             if (e.KeyCode == Keys.Enter)
             {
+                if (Globals.negativeNumber)
+                {
+                    Globals.secondNumber = Globals.secondNumber * -1;
+                }
                 float answer = 0;
                 if (Globals.operand == '+')
                 {
@@ -143,6 +161,8 @@ namespace Calculator
                     textBox1.Text = Convert.ToString(answer);
                 }
 
+                Globals.operandset = true;
+                Globals.negativeNumber = false;
                 Globals.secondNumber = '\0';
                 textBox1.SelectionStart = textBox1.Text.Length;
                 textBox1.Focus();
