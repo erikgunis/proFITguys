@@ -74,7 +74,7 @@ namespace Calculator
         {
             if (Globals.operandset)
             {
-                Globals.operandset = false;
+                //Globals.operandset = false;
                 textBox1.Clear();
             }
            
@@ -121,6 +121,7 @@ namespace Calculator
             {
                 if (Globals.negativeNumber)
                 {
+                    //MessageBox.Show("Well");
                     Globals.secondNumber = Globals.secondNumber * -1;
                 }
                 float answer = 0;
