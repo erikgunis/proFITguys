@@ -39,7 +39,7 @@ public static class Mathlib
             ulong bb = Convert.ToUInt64(b);
             ulong x = aa;
             ulong y = bb;
-        MessageBox.Show("b,bb:" + b+ " " + bb);
+       // MessageBox.Show("b,bb:" + b+ " " + bb);
         if (!((a - aa == 0) && (b - bb == 0)))  //test ci je parameter cele cislo
             {
                 MessageBox.Show("Invalid format(real number)", "Warning");         //zly vstup - realne cislo
