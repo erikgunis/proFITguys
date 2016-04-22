@@ -3,24 +3,24 @@ using System.Windows.Forms;
 
 
 
-public class Mathlib
+public static class Mathlib
     {
-        public float addition(float a, float b) //SCITANIE
+        public static float addition(float a, float b) //SCITANIE
         {
             return (a + b);
         }
 
-        public float subtraction(float a, float b) //ODCITANIE
+        public static float subtraction(float a, float b) //ODCITANIE
         {
             return (a - b);
         }
 
-        public float multiplication(float a, float b) //NASOBENIE
+        public static float multiplication(float a, float b) //NASOBENIE
         {
             return (a * b);
         }
 
-        public float divide(float a, float b) //DELENIE
+        public static float divide(float a, float b) //DELENIE
         {
             if (b == 0)
             {
@@ -33,7 +33,7 @@ public class Mathlib
             }
         }
 
-        public float modulo(float a, float b)  // DELENIE MODULO
+        public static float modulo(float a, float b)  // DELENIE MODULO
         {
             ulong aa = Convert.ToUInt64(a);
             ulong bb = Convert.ToUInt64(b);
@@ -58,7 +58,7 @@ public class Mathlib
         }
 
 
-        public float factorial(float f)  //FAKTORIAL
+        public static float factorial(float f)  //FAKTORIAL
         {
         if (f < 0)
         {
@@ -93,8 +93,9 @@ public class Mathlib
             return Convert.ToSingle(x);
         }
 
-        public float exponent(double a, ulong b) //MOCNINA - EXPONENT
+        public static float exponent(double a, double c) //MOCNINA - EXPONENT
         {
+            ulong b = Convert.ToUInt32(c);
             if (b > 0)
             {
                 for (ulong i = (b - 1); i > 0; i--)
