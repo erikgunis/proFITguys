@@ -26,8 +26,7 @@ namespace Calculator
             public static char operand;
             public static bool potentialNegative = false;
             public static bool operandset = false;
-            //public static bool enterPressed = false;
-            public static float TextBoxNumber = 0;
+            public static double TextBoxNumber = 0;
             public static bool resultSet = false;
             public static string example;
         }
@@ -35,12 +34,12 @@ namespace Calculator
         
 
         public class globs{//Class for the whole example, creates list for numbers and operands
-            public List<float> numbers = new List<float>();
+            public List<double> numbers = new List<double>();
             public List<char> operands = new List<char>();
-            // float num;
+            // double num;
             int sizeNum;
             int sizeOp;
-            public void addNum(float a)
+            public void addNum(double a)
             {
                 numbers.Add(a);
             }
@@ -49,11 +48,11 @@ namespace Calculator
                 sizeNum = numbers.Count();
                 return sizeNum;
             }
-            public float getNumItem(int item)
+            public double getNumItem(int item)
             {
                 return numbers[item];
             }
-            public void setValue(int i, float value)
+            public void setValue(int i, double value)
             {
                 numbers[i] = value;
             }
@@ -74,16 +73,17 @@ namespace Calculator
 
         public void addCharToTextbox(char a)
         {//checks and adds a charracter to Textbox
+           // MessageBox.Show(Convert.ToString(a) + " " + Globals.operandset);
             if (Globals.operandset)//clear textbox to insert second number
             {
-                //Globals.enterPressed = false;
                 Globals.potentialNegative = true;
                 Globals.operandset = false;
-                textBox1.Clear();
-                if (Globals.resultSet)// && !Globals.enterPressed)
+                //textBox1.Clear();
+                /*if (Globals.resultSet)// && !Globals.enterPressed)
                 {
                     setDefaults();
-                }
+                }*/
+                
             }
 
             if (Globals.resultSet && !Globals.operandset)
@@ -97,16 +97,10 @@ namespace Calculator
                     return;
                 else if (a == '-' && (textBox1.Text.IndexOf('-') > -1 || !Globals.potentialNegative))//forbids more minuses
                     return;
-                else if (a == '-' && textBox1.Text.IndexOf('-') < -1 && Globals.potentialNegative)//allows minus for negative number
-                    {
-                    textBox1.SelectionStart = 0;
-                    textBox1.Text += a;
-                    textBox1.SelectionStart = textBox1.Text.Length;
-                    textBox1.Focus();
-                }
-                //else if()
                 else
                 {//input is a number from button
+                 // MessageBox.Show(Convert.ToString(a));
+                    if (a == '-') ;// MessageBox.Show("BFFF");
                     textBox1.Text += a;
                     textBox1.SelectionStart = textBox1.Text.Length;
                     textBox1.Focus();
@@ -115,35 +109,35 @@ namespace Calculator
         }
         public void clearFunction()
         {//clear everything
-
             Globals.TextBoxNumber = 0;
             textBox1.Text = "0";
             label_operations.Text = "\0";
             Globals.example = "\0";
-            numops.setValue(0, 0);
             Globals.operand = '\0';
             Globals.operandset = false;
             Globals.resultSet = false;
-            numops.numbers.RemoveAt(0);
+            if((numops.getNumSize()) > 0) numops.numbers.RemoveAt(0);
             textBox1.SelectionStart = textBox1.Text.Length;
             textBox1.Focus();
         }
-        public void setValue(int y, float value)
+        public void setValue(int y, double value)
         {//Sets value of computed numbers, deletes the other one, deletes operand that's been used
             numops.numbers.RemoveAt(y + 1);
             numops.setValue(y, value);
+            //MessageBox.Show(Convert.ToString(numops.operands[y] + "OP"));
             numops.operands.RemoveAt(y);
             
         }
         public void equalsFunction()
         {//enter pressed
-            float answer = 0;
+            double answer = 0;
             numops.addNum(Globals.TextBoxNumber);
             Globals.example += ' ' + Convert.ToString(Globals.TextBoxNumber);
 
             int sizenum = numops.getNumSize();
             int sizeop = numops.getOpSize();
-            float[] num = numops.numbers.ToArray();
+           // MessageBox.Show(Convert.ToString(sizeop));
+            double[] num = numops.numbers.ToArray();
             char[] op = numops.operands.ToArray();
             //MessageBox.Show(Convert.ToString(sizenum +" " + sizeop));
             
@@ -152,18 +146,27 @@ namespace Calculator
                 switch (op[y])
                 {
                     case 'f':
-                        Globals.operand = '!';
+                        num[y] = Mathlib.factorial(num[y]);
+                        numops.setValue(y, num[y]);
+                        numops.operands.RemoveAt(y);
+                        sizeop = numops.getOpSize();
+                        op = numops.operands.ToArray();
+                        num = numops.numbers.ToArray();
+                        y = -1;
                         break;
                 }
             }
             for (int y = 0; y < sizeop; y++)
             {//exponent
+                //for (int a = 0; a < sizeop; a++) { MessageBox.Show(Convert.ToString(op[a])); }
                 switch (op[y])
                 {
                     case 'e':
+                       // MessageBox.Show("E");
                         num[y] = Mathlib.exponent(num[y], num[y + 1]);
                         setValue(y, num[y]);
                         sizeop = numops.getOpSize();
+                        op = numops.operands.ToArray();
                         num = numops.numbers.ToArray();
                         y = -1;
                         break;
@@ -174,9 +177,12 @@ namespace Calculator
                 switch (op[y])
                 {
                     case '*':
+                        //MessageBox.Show("*");
                         num[y] = Mathlib.multiplication(num[y], num[y + 1]);
                         setValue(y, num[y]);
                         sizeop = numops.getOpSize();
+                        op = numops.operands.ToArray();
+                        
                         num = numops.numbers.ToArray();
                         y = -1;
                         break;
@@ -184,14 +190,15 @@ namespace Calculator
                         num[y] = Mathlib.divide(num[y], num[y + 1]);
                         setValue(y, num[y]);
                         sizeop = numops.getOpSize();
+                        op = numops.operands.ToArray();
                         num = numops.numbers.ToArray();
                         y = -1;
                         break;
-
                     case 'm':
                         num[y] = Mathlib.modulo(num[y], num[y + 1]);
                         setValue(y, num[y]);
                         sizeop = numops.getOpSize();
+                        op = numops.operands.ToArray();
                         num = numops.numbers.ToArray();
                         y = -1;
                         break;
@@ -218,8 +225,8 @@ namespace Calculator
                         break;
                 }
             }
-            
-                
+
+            //MessageBox.Show(Convert.ToString(numops.getNumSize() + " " + numops.getOpSize()));
             
             answer = num[0];
             numops.setValue(0, answer);
@@ -231,25 +238,61 @@ namespace Calculator
             textBox1.Text = Convert.ToString(answer);
             textBox1.SelectionStart = textBox1.Text.Length;
             textBox1.Focus();
-            MessageBox.Show(Convert.ToString(numops.getNumSize() + " " + numops.getOpSize()));
+            //MessageBox.Show(Convert.ToString(numops.getNumSize() + " " + numops.getOpSize()));
         }
 
 
         public void setOperator(char op)
         {
+            if (Globals.operandset && op != '-') return;
+            else
+            {
 
-           
-            numops.addNum(Globals.TextBoxNumber);
-            numops.addOp(op);
+            
+                textBox1.Clear();
+                if (op == '-' && Globals.operandset && textBox1.Text.IndexOf('-') < -1)
+                //else if (a == '-' && textBox1.Text.IndexOf('-') < -1 && Globals.potentialNegative)//allows minus for negative number
+                {
+                    Globals.potentialNegative = false;
+                    textBox1.SelectionStart = 0;
+                    textBox1.Text += op;
+                    textBox1.SelectionStart = textBox1.Text.Length;
+                    textBox1.Focus();
+                }
+                if (Globals.resultSet)
+                {
+                    numops.addOp(op);
+                    label_operations.Text = "\0";
+                    Globals.resultSet = false;
+                    Globals.example = "\0";
+                    Globals.operandset = false;
+                    int size = numops.getNumSize();
+                    int sizeop = numops.getOpSize();
+                    label_operations.Text += ' ' + Convert.ToString(numops.getNumItem(size - 1)) + ' ' + Convert.ToString(numops.getOpItem(sizeop - 1));
+                    Globals.example += ' ' + Convert.ToString(numops.getNumItem(size - 1)) + ' ' + Convert.ToString(numops.getOpItem(sizeop - 1));
+                }
+                else
+                {
+                    if (!(op == '-' && Globals.operandset))
+                    {
+                        numops.addNum(Globals.TextBoxNumber);
+                        numops.addOp(op);
+                        int size = numops.getNumSize();
+                        int sizeop = numops.getOpSize();
+                        label_operations.Text += ' ' + Convert.ToString(numops.getNumItem(size - 1)) + ' ' + Convert.ToString(numops.getOpItem(sizeop - 1));
+                        Globals.example += ' ' + Convert.ToString(numops.getNumItem(size - 1)) + ' ' + Convert.ToString(numops.getOpItem(sizeop - 1));
+                    }
+                }
 
-            int size = numops.getNumSize();
-            int sizeop = numops.getOpSize();
-            label_operations.Text += ' ' + Convert.ToString(numops.getNumItem(size - 1)) + ' ' + Convert.ToString(numops.getOpItem(sizeop - 1));
-            Globals.example += ' ' + Convert.ToString(numops.getNumItem(size - 1)) + ' ' + Convert.ToString(numops.getOpItem(sizeop - 1));
 
-            setThings();
-            Globals.operand = op;
+
+                //setThings();
+                Globals.operand = op;
+                Globals.operandset = true;
+                //Globals.operandset = false;
+            }
         }
+
         public void setThings()
         {
             setDefaults();
@@ -275,14 +318,14 @@ namespace Calculator
             {
                 if (!(String.IsNullOrEmpty(textBox1.Text)))
                 {
-                    Globals.TextBoxNumber = float.Parse(textBox1.Text);
+                    Globals.TextBoxNumber = double.Parse(textBox1.Text);
                 }
             }
             if (!(Globals.operand == '\0'))
             {
                 if (!(string.IsNullOrEmpty(textBox1.Text)) && !(textBox1.Text == "-"))
                 {
-                    Globals.TextBoxNumber = float.Parse(textBox1.Text);
+                    Globals.TextBoxNumber = double.Parse(textBox1.Text);
                    
                 }
             }
@@ -323,7 +366,7 @@ namespace Calculator
             {//substraction keyboard pressed         
                 if (Globals.potentialNegative)
                 {
-                    Globals.potentialNegative = false;
+                    //Globals.potentialNegative = false;
                 }
                 else
                 {
