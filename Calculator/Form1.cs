@@ -73,17 +73,10 @@ namespace Calculator
 
         public void addCharToTextbox(char a)
         {//checks and adds a charracter to Textbox
-           // MessageBox.Show(Convert.ToString(a) + " " + Globals.operandset);
             if (Globals.operandset)//clear textbox to insert second number
             {
                 Globals.potentialNegative = true;
                 Globals.operandset = false;
-                //textBox1.Clear();
-                /*if (Globals.resultSet)// && !Globals.enterPressed)
-                {
-                    setDefaults();
-                }*/
-                
             }
 
             if (Globals.resultSet && !Globals.operandset)
@@ -116,7 +109,8 @@ namespace Calculator
             Globals.operand = '\0';
             Globals.operandset = false;
             Globals.resultSet = false;
-            if((numops.getNumSize()) > 0) numops.numbers.RemoveAt(0);
+            while((numops.getNumSize()) > 0) numops.numbers.RemoveAt(0);
+            while((numops.getOpSize()) > 0) numops.operands.RemoveAt(0);
             textBox1.SelectionStart = textBox1.Text.Length;
             textBox1.Focus();
         }
@@ -225,9 +219,6 @@ namespace Calculator
                         break;
                 }
             }
-
-            //MessageBox.Show(Convert.ToString(numops.getNumSize() + " " + numops.getOpSize()));
-            
             answer = num[0];
             numops.setValue(0, answer);
             Globals.operandset = false;
@@ -238,10 +229,7 @@ namespace Calculator
             textBox1.Text = Convert.ToString(answer);
             textBox1.SelectionStart = textBox1.Text.Length;
             textBox1.Focus();
-            //MessageBox.Show(Convert.ToString(numops.getNumSize() + " " + numops.getOpSize()));
         }
-
-
         public void setOperator(char op)
         {
             if (Globals.operandset && op != '-') return;
@@ -250,9 +238,10 @@ namespace Calculator
 
             
                 textBox1.Clear();
-                if (op == '-' && Globals.operandset && textBox1.Text.IndexOf('-') < -1)
-                //else if (a == '-' && textBox1.Text.IndexOf('-') < -1 && Globals.potentialNegative)//allows minus for negative number
-                {
+                if ((op == '-' && Globals.operandset && textBox1.Text.IndexOf('-') < 0))
+                {//setting a negative number
+                    
+                    textBox1.Clear();
                     Globals.potentialNegative = false;
                     textBox1.SelectionStart = 0;
                     textBox1.Text += op;
@@ -260,7 +249,7 @@ namespace Calculator
                     textBox1.Focus();
                 }
                 if (Globals.resultSet)
-                {
+                {//if was a result
                     numops.addOp(op);
                     label_operations.Text = "\0";
                     Globals.resultSet = false;
@@ -272,7 +261,8 @@ namespace Calculator
                     Globals.example += ' ' + Convert.ToString(numops.getNumItem(size - 1)) + ' ' + Convert.ToString(numops.getOpItem(sizeop - 1));
                 }
                 else
-                {
+                {//normal flow
+                    
                     if (!(op == '-' && Globals.operandset))
                     {
                         numops.addNum(Globals.TextBoxNumber);
@@ -283,13 +273,8 @@ namespace Calculator
                         Globals.example += ' ' + Convert.ToString(numops.getNumItem(size - 1)) + ' ' + Convert.ToString(numops.getOpItem(sizeop - 1));
                     }
                 }
-
-
-
-                //setThings();
-                Globals.operand = op;
-                Globals.operandset = true;
-                //Globals.operandset = false;
+                    Globals.operand = op;
+                    Globals.operandset = true;
             }
         }
 
@@ -306,11 +291,7 @@ namespace Calculator
             Globals.operandset = false;
             Globals.operand = '\0';
             Globals.potentialNegative = false;
-            //Globals.enterPressed = false;
         }
-
-
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             
@@ -330,7 +311,6 @@ namespace Calculator
                 }
             }
         }
-
         private void Form1_Press(object sender, KeyPressEventArgs e)
         {
             if (!(ActiveControl.GetType() == typeof(TextBox)))
@@ -338,7 +318,6 @@ namespace Calculator
                addCharToTextbox(e.KeyChar);
             }
         }
-
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {//https://msdn.microsoft.com/en-us/library/aa243025(v=vs.60).asxp
 
@@ -364,15 +343,9 @@ namespace Calculator
             }
             if (key == 109)
             {//substraction keyboard pressed         
-                if (Globals.potentialNegative)
-                {
-                    //Globals.potentialNegative = false;
-                }
-                else
-                {
-                    setOperator('-');
-                }
-                addCharToTextbox('-');
+                
+                setOperator('-');
+                //addCharToTextbox('-');
             }
             if (key == 106)
             {//multiplication keyboard pressed
