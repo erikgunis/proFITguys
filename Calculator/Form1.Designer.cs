@@ -1,6 +1,10 @@
 ﻿namespace Calculator
 {
+<<<<<<< HEAD
 	/// <summary>
+=======
+    /// <summary>
+>>>>>>> interactive
     /// graficke rozhrani
     /// </summary>
     partial class Form1
@@ -364,4 +368,3 @@
         private System.Windows.Forms.Button button_modulo;
     }
 }
-

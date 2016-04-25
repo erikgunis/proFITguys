@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Mirec\VUT Škola\2. semester\IVS\Projekt\Visual Studio\Calculator\Calculator\bin\Debug\Calculator.exe.config
 C:\Mirec\VUT Škola\2. semester\IVS\Projekt\Visual Studio\Calculator\Calculator\bin\Debug\Calculator.exe
 C:\Mirec\VUT Škola\2. semester\IVS\Projekt\Visual Studio\Calculator\Calculator\bin\Debug\Calculator.pdb
@@ -10,7 +11,6 @@ C:\Mirec\VUT Škola\2. semester\IVS\Projekt\Visual Studio\Calculator\Calculator\
 C:\school\profitguys\Calculator\bin\Debug\Calculator.exe.config
 C:\school\profitguys\Calculator\obj\Debug\Calculator.exe
 C:\school\profitguys\Calculator\obj\Debug\Calculator.pdb
-<<<<<<< HEAD
 =======
 C:\school\profitguys\Calculator\bin\Debug\Calculator.exe
 C:\school\profitguys\Calculator\bin\Debug\Calculator.pdb
@@ -28,6 +28,7 @@ C:\Mirec\VUT Škola\2. semester\IVS\Projekt\Visual Studio\proFITguys\Calculator\
 C:\Mirec\VUT Škola\2. semester\IVS\Projekt\Visual Studio\proFITguys\Calculator\obj\Debug\Calculator.Properties.Resources.resources
 C:\Mirec\VUT Škola\2. semester\IVS\Projekt\Visual Studio\proFITguys\Calculator\obj\Debug\Calculator.csproj.GenerateResource.Cache
 >>>>>>> bb8246ceb6b4085f752405c4681ed64c6fb2f409
+>>>>>>> interactive
 C:\school\IVS\proFITguys\Calculator\bin\Debug\Calculator.exe.config
 C:\school\IVS\proFITguys\Calculator\obj\Debug\Calculator.exe
 C:\school\IVS\proFITguys\Calculator\obj\Debug\Calculator.pdb
@@ -37,3 +38,7 @@ C:\school\IVS\proFITguys\Calculator\obj\Debug\Calculator.csprojResolveAssemblyRe
 C:\school\IVS\proFITguys\Calculator\obj\Debug\Calculator.Form1.resources
 C:\school\IVS\proFITguys\Calculator\obj\Debug\Calculator.Properties.Resources.resources
 C:\school\IVS\proFITguys\Calculator\obj\Debug\Calculator.csproj.GenerateResource.Cache
+C:\Users\erik\Documents\NEW\proFITguys\Calculator\bin\Debug\Calculator.exe.config
+C:\Users\erik\Documents\NEW\proFITguys\Calculator\obj\Debug\Calculator.exe
+C:\Users\erik\Documents\NEW\proFITguys\Calculator\obj\Debug\Calculator.pdb
+>>>>>>> 34c2477ec83a188b44d642f77c6c8e02540071a1
