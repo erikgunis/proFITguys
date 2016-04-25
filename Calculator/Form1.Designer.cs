@@ -1,16 +1,19 @@
 ﻿namespace Calculator
 {
+	/// <summary>
+    /// graficke rozhrani
+    /// </summary>
     partial class Form1
     {
         /// <summary>
-        /// Required designer variable.
+        /// potrebne pro design
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// vycisteni zdroju pred pouzitim
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing"> pravda pokud zdoje mouhou byt pouzity, jinak false </param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -23,8 +26,8 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+		/// Požadovaný způsob podpory Designer - neupravovat
+        /// Obsah této metody s editoru kódu.
         /// </summary>
         private void InitializeComponent()
         {

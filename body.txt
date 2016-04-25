@@ -1,0 +1,4 @@
+xkazim00 5 (GUI, mockup, testy mat. knihovny)
+xklabe00 5 (dokumentace a uživatelská pøíruèka)
+xkisel02 5 (jádro, integrace, instalator)
+xgunis00 5 (matematická knihovna, profiling)
