@@ -1,10 +1,21 @@
-﻿﻿using System;
+﻿
+using System;
 using System.Windows.Forms;
 
 
-
+/// <summary>
+/// knihovna s matematickymi fukncemi
+/// </summary>
 public static class Mathlib
 {
+    /// <summary>
+    /// Secteni prvniho a druheho cisla
+    /// </summary>
+    ///
+    /// <param name="a"> hodnota prvniho cisla </param>
+    /// <param name="b"> hodnota druheho cisla </param>
+    ///
+    /// <returns> vraceni hodnoty secteni prvniho a druheho cisla </returns>
     public static double addition(double a, double b) //SCITANIE
     {
         if (((a + b) > double.MaxValue) || ((a + b) < double.MinValue))
@@ -15,7 +26,14 @@ public static class Mathlib
         else
             return (a + b);
     }
-
+    /// <summary>
+    /// Odecteni prvniho a druheho cisla
+    /// </summary>
+    ///
+    /// <param name="a"> hodnota prvniho cisla </param>
+    /// <param name="b"> hodnota druheho cisla </param>
+    ///
+    /// <returns> vraceni hodnoty odecteni prvniho a druheho cisla </returns>
     public static double subtraction(double a, double b) //ODCITANIE
     {
         if ((a - b > double.MaxValue) || (a - b < double.MinValue))
@@ -27,6 +45,14 @@ public static class Mathlib
             return (a - b);
     }
 
+    /// <summary>
+    /// Nasobeni prvniho a druheho cisla
+    /// </summary>
+    ///
+    /// <param name="a"> hodnota prvniho cisla </param>
+    /// <param name="b"> hodnota druheho cislaiption </param>
+    ///
+    /// <returns> vrceni hodnoty nasobeni prvniho a druheho cisla  </returns>
     public static double multiplication(double a, double b) //NASOBENIE
     {
 
@@ -39,6 +65,14 @@ public static class Mathlib
             return (a * b);
     }
 
+    /// <summary>
+    /// Deleni prvniho cisla druhym a osetreni pro deleni nulou
+    /// </summary>
+    ///
+    /// <param name="a"> hodnota prvniho cisla </param>
+    /// <param name="b"> hodnota druheho cisla </param>
+    ///
+    /// <returns> vraceni hodnoty prvniho cisla vydelene druhym cislem pokud druho cislo nebylo 0 </returns>
     public static double divide(double a, double b) //DELENIE
     {
         if (b == 0)
@@ -50,7 +84,7 @@ public static class Mathlib
         {
             if ((a * b > double.MaxValue) || (a * b < double.MinValue))
             {
-                MessageBox.Show("Overflow", "Warning");         // overflow.
+                MessageBox.Show("Overflow", "Warning");         // overflow
                 return 0;
             }
             else
@@ -58,31 +92,50 @@ public static class Mathlib
         }
     }
 
+    /// <summary>
+    /// modulo dvou cisel a osetreni pro deleni nulou, osetreni vstupu pouze pro cela cisla
+    /// </summary>
+    ///
+    /// <param name="a"> hodnota prvniho cisla </param>
+    /// <param name="b"> hodnota druheho cisla </param>
+    ///
+    /// <returns> vraceni hodnoty prvniho cisla modulo druhym cislem </returns>
     public static double modulo(double a, double b)  // DELENIE MODULO
     {
-        ulong aa = Convert.ToUInt64(a);
-        ulong bb = Convert.ToUInt64(b);
-        ulong x = aa;
-        ulong y = bb;
-        // MessageBox.Show("b,bb:" + b+ " " + bb);
-        if (!((a - aa == 0) && (b - bb == 0)))  //test ci je parameter cele cislo
+        if (double.IsInfinity(a) || double.IsInfinity(b))
+        {
+            MessageBox.Show("Overflow", "Warning");         // overflow
+            return 0;
+        }
+        if ((a % 1 != 0) || (b % 1 != 0))
         {
             MessageBox.Show("Invalid format (real number)", "Warning");         //zly vstup - realne cislo
             return 0;
         }
+        if ((a < 0) || (b < 0))
+        {
+            MessageBox.Show("Invalid format (negative number)", "Warning");         //zly vstup - realne cislo
+            return 0;
+        }
+        ulong x = Convert.ToUInt64(a);
+        ulong y = Convert.ToUInt64(b);
         if (y == 0)
         {
             MessageBox.Show("Invalid format (Divide by zero)", "Warning");          //zly vstup - delenie nulou
             return 0;
         }
-        else
-        {
-            ulong z = x / y;
-            return Convert.ToSingle(x - (y * z));
-        }
+        ulong z = x / y;
+        return Convert.ToDouble(x - (y * z));
     }
 
 
+    /// <summary>
+    /// vypocet faktorialu a osetreni zaporneho faktorialu, faktorialu realneho cisla
+    /// </summary>
+    ///
+    /// <param name="f"> hodnota cisla ze vstupu </param>
+    ///
+    /// <returns>< vraceni hodnoty faktorial vstupniho cisla ></returns>
     public static double factorial(double f)  //FAKTORIAL
     {
         if (f < 0)
@@ -123,7 +176,14 @@ public static class Mathlib
         else
             return Convert.ToDouble(x);
     }
-
+    /// <summary>
+    /// vypocet umocneni, osetreni proti preteceni
+    /// </summary>
+    ///
+    /// <param name="a"> mocnene cislo </param>
+    /// <param name="c"> exponent </param>
+    ///
+    /// <returns> vraceni hodnoty umocneneho cisla na zadany exponent </returns>
     public static double exponent(double a, double c) //MOCNINA - EXPONENT
     {
         if (c < 0)
