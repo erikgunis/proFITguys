@@ -28,3 +28,9 @@ C:\Mirec\VUT Škola\2. semester\IVS\Projekt\Visual Studio\proFITguys\Calculator\
 C:\school\IVS\proFITguys\Calculator\bin\Debug\Calculator.exe.config
 C:\school\IVS\proFITguys\Calculator\obj\Debug\Calculator.exe
 C:\school\IVS\proFITguys\Calculator\obj\Debug\Calculator.pdb
+C:\school\IVS\proFITguys\Calculator\bin\Debug\Calculator.exe
+C:\school\IVS\proFITguys\Calculator\bin\Debug\Calculator.pdb
+C:\school\IVS\proFITguys\Calculator\obj\Debug\Calculator.csprojResolveAssemblyReference.cache
+C:\school\IVS\proFITguys\Calculator\obj\Debug\Calculator.Form1.resources
+C:\school\IVS\proFITguys\Calculator\obj\Debug\Calculator.Properties.Resources.resources
+C:\school\IVS\proFITguys\Calculator\obj\Debug\Calculator.csproj.GenerateResource.Cache
