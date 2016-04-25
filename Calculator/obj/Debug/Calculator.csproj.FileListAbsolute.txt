@@ -7,3 +7,6 @@ C:\Mirec\VUT Škola\2. semester\IVS\Projekt\Visual Studio\Calculator\Calculator\
 C:\Mirec\VUT Škola\2. semester\IVS\Projekt\Visual Studio\Calculator\Calculator\obj\Debug\Calculator.csproj.GenerateResource.Cache
 C:\Mirec\VUT Škola\2. semester\IVS\Projekt\Visual Studio\Calculator\Calculator\obj\Debug\Calculator.exe
 C:\Mirec\VUT Škola\2. semester\IVS\Projekt\Visual Studio\Calculator\Calculator\obj\Debug\Calculator.pdb
+C:\Users\erik\Documents\NEW\proFITguys\Calculator\bin\Debug\Calculator.exe.config
+C:\Users\erik\Documents\NEW\proFITguys\Calculator\obj\Debug\Calculator.exe
+C:\Users\erik\Documents\NEW\proFITguys\Calculator\obj\Debug\Calculator.pdb
