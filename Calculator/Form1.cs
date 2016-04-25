@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
+/// <summary>
+/// kalkulacka
+/// </summary>
 namespace Calculator
 {
 		/// <summary>
@@ -44,10 +46,16 @@ namespace Calculator
         globs numops = new globs();//an instance of the globs class
         
         /// <summary>
-        /// Class for the whole example, creates list for numbers and operands
+        /// cela trida pro pole operandu a cisel
         /// </summary>
         public class globs{
+        	/// <summary>
+        	/// pole cisel
+        	/// </summary>
             public List<float> numbers = new List<float>();
+	        /// <summary>
+	        /// pole operandu
+	        /// </summary>
             public List<char> operands = new List<char>();
             // float num;
             int sizeNum;
