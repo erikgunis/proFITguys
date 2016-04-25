@@ -118,7 +118,6 @@ namespace Calculator
         {//Sets value of computed numbers, deletes the other one, deletes operand that's been used
             numops.numbers.RemoveAt(y + 1);
             numops.setValue(y, value);
-            //MessageBox.Show(Convert.ToString(numops.operands[y] + "OP"));
             numops.operands.RemoveAt(y);
             
         }
@@ -140,9 +139,12 @@ namespace Calculator
                 switch (op[y])
                 {
                     case 'f':
+                        MessageBox.Show(Convert.ToString(numops.getNumSize() + " " + numops.getOpSize()));
                         num[y] = Mathlib.factorial(num[y]);
-                        numops.setValue(y, num[y]);
-                        numops.operands.RemoveAt(y);
+                        //numops.setValue(y, num[y]);
+                        //numops.operands.RemoveAt(y);
+                        setValue(y, num[y]);
+                        MessageBox.Show(Convert.ToString(numops.getNumSize() + " " + numops.getOpSize()));
                         sizeop = numops.getOpSize();
                         op = numops.operands.ToArray();
                         num = numops.numbers.ToArray();
@@ -232,11 +234,17 @@ namespace Calculator
         }
         public void setOperator(char op)
         {
+            if(!(Globals.operandset) && numops.getNumSize() == 0 && op == '-')
+            {
+                textBox1.Text += op;
+                textBox1.SelectionStart = textBox1.Text.Length;
+                textBox1.Focus();
+            }
+            else
+            {
             if (Globals.operandset && op != '-') return;
             else
             {
-
-            
                 textBox1.Clear();
                 if ((op == '-' && Globals.operandset && textBox1.Text.IndexOf('-') < 0))
                 {//setting a negative number
@@ -249,7 +257,7 @@ namespace Calculator
                     textBox1.Focus();
                 }
                 if (Globals.resultSet)
-                {//if was a result
+                {//if result is saved
                     numops.addOp(op);
                     label_operations.Text = "\0";
                     Globals.resultSet = false;
@@ -269,14 +277,24 @@ namespace Calculator
                         numops.addOp(op);
                         int size = numops.getNumSize();
                         int sizeop = numops.getOpSize();
-                        label_operations.Text += ' ' + Convert.ToString(numops.getNumItem(size - 1)) + ' ' + Convert.ToString(numops.getOpItem(sizeop - 1));
-                        Globals.example += ' ' + Convert.ToString(numops.getNumItem(size - 1)) + ' ' + Convert.ToString(numops.getOpItem(sizeop - 1));
+                            if(op != 'f') {
+                                label_operations.Text += ' ' + Convert.ToString(numops.getNumItem(size - 1)) + ' ' + Convert.ToString(numops.getOpItem(sizeop - 1));
+                                Globals.example += ' ' + Convert.ToString(numops.getNumItem(size - 1)) + ' ' + Convert.ToString(numops.getOpItem(sizeop - 1));
+                            }
+                            else
+                            {
+                                label_operations.Text += ' ' + Convert.ToString(numops.getNumItem(size - 1))+ " " + "!";
+                                Globals.example += ' ' + Convert.ToString(numops.getNumItem(size - 1)) + " " + "!";
+                            }
+                        
                     }
                 }
                     Globals.operand = op;
                     Globals.operandset = true;
             }
         }
+    }
+
 
         public void setThings()
         {
@@ -297,7 +315,7 @@ namespace Calculator
             
             if ((Globals.operand == '\0'))
             {
-                if (!(String.IsNullOrEmpty(textBox1.Text)))
+                if (!(String.IsNullOrEmpty(textBox1.Text)) && !(textBox1.Text == "-"))
                 {
                     Globals.TextBoxNumber = double.Parse(textBox1.Text);
                 }
