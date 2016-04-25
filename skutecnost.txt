@@ -1,0 +1,12 @@
+Stanovene terminy:
+12.4.2016 - Logika programu(main)
+15.4.2016 - GUI
+17.4.2016 - Integrace
+20.4.2016 - Jednotkove testy + Integracne testy
+22.4.2016 - Profiling + instalator
+
+Skuteènost:
+20.4.2016 - GUI
+24.4.2016 - Jednotkove testy
+25.4.2016 - Integrace
+25.4.2016 - Profiling + instalator
