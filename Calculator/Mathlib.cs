@@ -90,11 +90,17 @@ public static class Mathlib
                 }
             }
         }
-        return Convert.ToSingle(x);
+        return Convert.ToDouble(x);
     }
 
     public static double exponent(double a, double c) //MOCNINA - EXPONENT
     {
+        if (c < 0)
+        {
+            MessageBox.Show("Invalid format(real number)", "Warning");        //zly vstup - realne cislo
+            return 0;
+        }
+
         ulong b = Convert.ToUInt64(c);
         if (!(c - b == 0))              //test ci je parameter cele cislo
         {
@@ -107,15 +113,16 @@ public static class Mathlib
             return 1; //exponent je 0    
         }
 
-        if (c > 0)
+        if (b > 0)
         {
+            double x = a;
             for (ulong i = (b - 1); i > 0; i--)
             {
-                a *= a;
+                a *= x;
             }
             if (a <= double.MaxValue)
             {
-                return Convert.ToSingle(a);
+                return a;
             }
             else
             {
