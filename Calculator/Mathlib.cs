@@ -7,29 +7,54 @@ public static class Mathlib
 {
     public static double addition(double a, double b) //SCITANIE
     {
-        return (a + b);
+        if (((a + b) > double.MaxValue) || ((a + b) < double.MinValue))
+        {
+            MessageBox.Show("Overflow", "Warning");         // overflow
+            return 0;
+        }
+        else
+            return (a + b);
     }
 
     public static double subtraction(double a, double b) //ODCITANIE
     {
-        return (a - b);
+        if ((a - b > double.MaxValue) || (a - b < double.MinValue))
+        {
+            MessageBox.Show("Overflow", "Warning");         // overflow
+            return 0;
+        }
+        else
+            return (a - b);
     }
 
     public static double multiplication(double a, double b) //NASOBENIE
     {
-        return (a * b);
+
+        if ((a * b > double.MaxValue) || (a * b < double.MinValue))
+        {
+            MessageBox.Show("Overflow", "Warning");         // overflow
+            return 0;
+        }
+        else
+            return (a * b);
     }
 
     public static double divide(double a, double b) //DELENIE
     {
         if (b == 0)
         {
-            MessageBox.Show("Invalid format(Divide by zero)", "Warning");         // delenie nulou
+            MessageBox.Show("Invalid format (Divide by zero)", "Warning");         // delenie nulou
             return 0;
         }
         else
         {
-            return (a / b);
+            if ((a * b > double.MaxValue) || (a * b < double.MinValue))
+            {
+                MessageBox.Show("Overflow", "Warning");         // overflow
+                return 0;
+            }
+            else
+                return (a / b);
         }
     }
 
@@ -42,12 +67,12 @@ public static class Mathlib
         // MessageBox.Show("b,bb:" + b+ " " + bb);
         if (!((a - aa == 0) && (b - bb == 0)))  //test ci je parameter cele cislo
         {
-            MessageBox.Show("Invalid format(real number)", "Warning");         //zly vstup - realne cislo
+            MessageBox.Show("Invalid format (real number)", "Warning");         //zly vstup - realne cislo
             return 0;
         }
         if (y == 0)
         {
-            MessageBox.Show("Invalid format(Divide by zero)", "Warning");          //zly vstup - delenie nulou
+            MessageBox.Show("Invalid format (Divide by zero)", "Warning");          //zly vstup - delenie nulou
             return 0;
         }
         else
@@ -62,7 +87,7 @@ public static class Mathlib
     {
         if (f < 0)
         {
-            MessageBox.Show("Invalid format(less than zero)", "Warning");               // zly vstup - menej ako 0
+            MessageBox.Show("Invalid format (less than zero)", "Warning");               // zly vstup - menej ako 0
             return 0;
         }
 
@@ -71,7 +96,7 @@ public static class Mathlib
 
         if (!(f - (Convert.ToUInt64(f)) == 0))              //test ci je parameter cele cislo
         {
-            MessageBox.Show("Invalid format(real number)", "Warning");        //zly vstup - realne cislo
+            MessageBox.Show("Invalid format (real number)", "Warning");        //zly vstup - realne cislo
             return 0;
         }
 
@@ -90,21 +115,27 @@ public static class Mathlib
                 }
             }
         }
-        return Convert.ToDouble(x);
+        if (x > double.MaxValue)
+        {
+            MessageBox.Show("Overflow", "Warning");         // overflow
+            return 0;
+        }
+        else
+            return Convert.ToDouble(x);
     }
 
     public static double exponent(double a, double c) //MOCNINA - EXPONENT
     {
         if (c < 0)
         {
-            MessageBox.Show("Invalid format(real number)", "Warning");        //zly vstup - realne cislo
+            MessageBox.Show("Invalid format (real number)", "Warning");        //zly vstup - realne cislo
             return 0;
         }
 
         ulong b = Convert.ToUInt64(c);
         if (!(c - b == 0))              //test ci je parameter cele cislo
         {
-            MessageBox.Show("Invalid format(real number)", "Warning");        //zly vstup - realne cislo
+            MessageBox.Show("Invalid format (real number)", "Warning");        //zly vstup - realne cislo
             return 0;
         }
 
@@ -120,25 +151,20 @@ public static class Mathlib
             {
                 a *= x;
             }
-            if (a <= double.MaxValue)
+            if ((a <= double.MaxValue) && (a >= double.MinValue))
             {
                 return a;
             }
             else
             {
-                MessageBox.Show("Invalid format(Overflow)", "Warning");
+                MessageBox.Show("Overflow", "Warning");
                 return 0;
             }
         }
         else
         {
-            MessageBox.Show("Invalid format(exponent is less than zero)", "Warning");         // zly exponent
+            MessageBox.Show("Invalid format (exponent is less than zero)", "Warning");         // zly exponent
             return 0;
         }
     }
-
-
-
-
-
 }
