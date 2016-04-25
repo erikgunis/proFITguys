@@ -11,14 +11,20 @@ using System.Windows.Forms;
 
 namespace Calculator
 {
-    public partial class Form1 : Form
+	    public partial class Form1 : Form
     {
-
+    	/// <summary>
+    	/// zakladni nastaveni kalkulacky
+    	/// </summary>
     public Form1()
         {
             InitializeComponent();
         }
         //Mathlib kniznica = new Mathlib();
+        
+        /// <summary>
+        /// nastaveni promnenych
+        /// </summary>
         public static class Globals
         {//global variables
             public static char operand;
@@ -29,6 +35,9 @@ namespace Calculator
             public static bool resultSet = false;
             public static string example;
         }
+        /// <summary>
+        /// instance tridy globs
+        /// </summary>
         globs numops = new globs();//an instance of the globs class
         
         /// <summary>

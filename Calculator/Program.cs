@@ -6,6 +6,9 @@ using System.Windows.Forms;
 
 namespace Calculator
 {
+	/// <summary>
+	/// deklarace gui
+	/// </summary>
     static class Program
     {
         

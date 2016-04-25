@@ -2,7 +2,9 @@
 using System.Windows.Forms;
 
 
-
+/// <summary>
+/// knihovna s matematickymi fukncemi
+/// </summary>
 public static class Mathlib
     {
     	/// <summary>
