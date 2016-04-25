@@ -11,6 +11,9 @@ using System.Windows.Forms;
 
 namespace Calculator
 {
+		/// <summary>
+    	/// deklarace kalkulacky
+    	/// </summary>
 	    public partial class Form1 : Form
     {
     	/// <summary>
@@ -52,7 +55,6 @@ namespace Calculator
             /// <summary>
             /// napsani cisla do pole
             /// </summary>
-            ///
             /// <param name="a"> napsani prvniho cisla ze vstupu </param>
             public void addNum(float a)
             {
