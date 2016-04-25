@@ -100,6 +100,16 @@ namespace CalculatorUnitTest
             Assert.AreEqual(0, Mathlib.modulo(9, 0));
         }
         [TestMethod]
+        public void TestModulo5()
+        {
+            Assert.AreEqual(0, Mathlib.modulo(-9, 0));
+        }
+        [TestMethod]
+        public void TestModulo6()
+        {
+            Assert.AreEqual(0, Mathlib.modulo(9, -5));
+        }
+        [TestMethod]
         public void TestFactorial1()
         {
             Assert.AreEqual(6402373705728000D, Mathlib.factorial(18));

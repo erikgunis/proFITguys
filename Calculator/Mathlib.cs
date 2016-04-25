@@ -60,26 +60,30 @@ public static class Mathlib
 
     public static double modulo(double a, double b)  // DELENIE MODULO
     {
-        ulong aa = Convert.ToUInt64(a);
-        ulong bb = Convert.ToUInt64(b);
-        ulong x = aa;
-        ulong y = bb;
-        // MessageBox.Show("b,bb:" + b+ " " + bb);
-        if (!((a - aa == 0) && (b - bb == 0)))  //test ci je parameter cele cislo
+        if(double.IsInfinity(a) || double.IsInfinity(b))
+        {
+            MessageBox.Show("Overflow", "Warning");         // overflow
+            return 0;
+        }
+        if ((a % 1 != 0) || (b % 1 != 0))
         {
             MessageBox.Show("Invalid format (real number)", "Warning");         //zly vstup - realne cislo
             return 0;
         }
+        if ((a < 0) || (b < 0))
+        {
+            MessageBox.Show("Invalid format (negative number)", "Warning");         //zly vstup - realne cislo
+            return 0;
+        }
+        ulong x = Convert.ToUInt64(a);
+        ulong y = Convert.ToUInt64(b);
         if (y == 0)
         {
             MessageBox.Show("Invalid format (Divide by zero)", "Warning");          //zly vstup - delenie nulou
             return 0;
         }
-        else
-        {
-            ulong z = x / y;
-            return Convert.ToSingle(x - (y * z));
-        }
+        ulong z = x / y;
+        return Convert.ToDouble(x - (y * z));
     }
 
 
@@ -121,7 +125,7 @@ public static class Mathlib
             return 0;
         }
         else
-            return Convert.ToDouble(x);
+             return Convert.ToDouble(x);
     }
 
     public static double exponent(double a, double c) //MOCNINA - EXPONENT
